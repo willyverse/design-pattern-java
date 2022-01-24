@@ -1,6 +1,7 @@
 package com.company.design;
 
 import com.company.design.adapter.*;
+import com.company.design.decorator.*;
 import com.company.design.proxy.AopBrowser;
 import com.company.design.proxy.Browser;
 import com.company.design.proxy.BrowserProxy;
@@ -32,7 +33,7 @@ public class Main {
         plugIn(adapter);
          */
 
-
+        /* Proxy
         Browser browser = new Browser("www.naver.com");
         browser.show();
         browser.show();
@@ -40,8 +41,9 @@ public class Main {
         IBrowser browserProxy = new BrowserProxy("www.naver.com");
         browserProxy.show();
         browserProxy.show();
+        */
 
-
+        /* Aop Proxy
         AtomicLong start = new AtomicLong();
         AtomicLong end = new AtomicLong();
         IBrowser aopBrowser = new AopBrowser("www.naver.com",
@@ -59,7 +61,22 @@ public class Main {
 
         aopBrowser.show();
         System.out.println("================================ loading time: " + end.get());
+         */
 
+        ICar audi = new Audi(1000);
+        audi.showPrice();
+
+        //a3
+        ICar audi3 = new A3(audi, "A3");
+        audi3.showPrice();
+
+        //a4
+        ICar audi4 = new A4(audi, "A4");
+        audi4.showPrice();
+
+        //a5
+        ICar audi5 = new A5(audi, "A5");
+        audi5.showPrice();
     }
 
     // Adapter
